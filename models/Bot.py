@@ -23,16 +23,6 @@ class Bot(ABC):
     @abstractmethod
     def process_message(self,msg: str) -> str: 
         raise NotImplementedError("Subclasses must implement this method")
-    
-    @abstractmethod
-    def generate_response(self,msg: str) -> str: 
-        raise NotImplementedError("Subclasses must implement this method")
-    
-    @abstractmethod
-    def send_response(self,reps: str) -> None: 
-        raise NotImplementedError("Subclasses must implement this method")
         
-    @abstractmethod
-    def __str__(self) -> str:
-        raise NotImplementedError("Subclasses must implement this method")
+   
     

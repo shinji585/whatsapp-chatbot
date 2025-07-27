@@ -1,8 +1,10 @@
 from typing import override
-from Bot import Bot
-from Message import Message
-from NPLModel import NPLmodel
-from ProhibitedWords import ProhibitedWordsError
+from models.Bot import Bot
+from models.Message import Message
+from models.NPLModel import NPLmodel
+from models.DummyModel import DummyModel
+from models.ProhibitedWords import ProhibitedWordsError
+from api.model_service import generar_respuestas
 import re
 
 
@@ -15,6 +17,7 @@ class ChatBot(Bot):
     def __init__(self, name: str = "ChatBot") -> None:
         super().__init__(name)
         self.__history = []
+        self.__model = DummyModel()
 
     # implementar los metodos de la clase abstracta
 
@@ -99,16 +102,9 @@ class ChatBot(Bot):
 
     @override
     def process_message(self, msg: str) -> str:
-        return f""
+        # retornamos la respuesta 
+        return self.__model.analyze(msg)
 
-    @override
-    def generate_response(self, msg: str) -> str:
-        return f""
+  
 
-    @override
-    def send_response(self, reps: str) -> None:
-        pass
-
-    @override
-    def __str__(self) -> str:
-        return f""
+   
